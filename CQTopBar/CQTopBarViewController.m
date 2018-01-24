@@ -14,24 +14,12 @@
 @interface CQTopBarViewController ()<CQTopBarSegmentDelegate,CQTopBarViewDelegate>
 @property (nonatomic,strong) CQTopBarSegment * segment;
 @property (nonatomic,strong) CQTopBarView * barView;
-
 @end
 
 #define KScreenWidth [[UIScreen mainScreen] bounds].size.width
 #define KScreenHeight [[UIScreen mainScreen] bounds].size.height
 
 @implementation CQTopBarViewController
-
-//- (instancetype _Nonnull )initWithTitles:(NSArray<NSString *> * _Nonnull)sectionTitles pageViewClasses:(NSArray<Class> * _Nonnull) pageViewClasses{
-//    self = [super init];
-//    if (self) {
-//        NSAssert(self.sectionTitles.count==self.pageViewClasses.count, @"两个数组大小必须一致");
-//        self.sectionTitles = sectionTitles;
-//        self.pageViewClasses = pageViewClasses;
-//        [self initUI];
-//    }
-//    return self;
-//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -72,6 +60,16 @@
 
 - (void)topBarReplaceObjectsAtIndexes:(NSUInteger)indexes withObjects:(id)objects{
     [self.segment topBarReplaceObjectsAtIndexes:indexes withObjects:objects BarView:self.barView];
+}
+
+- (void)setHiddenView:(BOOL)hiddenView{
+    _hiddenView = hiddenView;
+    if (hiddenView) {
+        [self setViewAnimaWithHeight:0];
+        [self.segment.collectionView reloadData];
+    }else{
+        [self setViewAnimaWithHeight:KScreenHeight-(64+40)];
+    }
 }
 
 - (void)topBarSegmentWithBlock:(CQTopBarSegment *)segment indexPath:(NSIndexPath *)indexPath{

@@ -29,7 +29,6 @@
     self.topBar.pageViewClasses = @[[Text1 class],[Text2 class],[Text3 class]];
     [self addChildViewController:self.topBar];
     [self.view addSubview:self.topBar.view];
-
 }
 
 - (void)InfoNotificationAction2:(NSNotification *)notification{
@@ -37,7 +36,7 @@
 }
 
 - (void)InfoNotificationAction3:(NSNotification *)notification{
-//    [self.topBar topBarReplaceObjectsAtIndexes:2 withObjects:notification.object];
+    self.topBar.hiddenView = YES;
 }
 
 @end

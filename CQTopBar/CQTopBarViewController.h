@@ -7,19 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-//@class CQTopBarViewController;
-//
-//typedef CQTopBarViewController * _Nullable (^setAttribute)(void);
-
 
 @interface CQTopBarViewController : UIViewController
-///**
-// 初始化
-// */
-//- (instancetype _Nonnull )initWithTitles:(NSArray<NSString *> * _Nonnull)sectionTitles pageViewClasses:(NSArray<Class> * _Nullable  _Nonnull) pageViewClasses;
 
-// 修改文字
+/**
+ * 修改segment文字
+ * indexes:需要修改第几个文字
+ * objects:需要修改文字内容
+ */
 - (void)topBarReplaceObjectsAtIndexes:(NSUInteger)indexes withObjects:(id _Nullable )objects;
+
+/**
+ 是否隐藏当前显示View
+ */
+@property (nonatomic, assign) BOOL hiddenView;
+
 /**
  需要显示的文本数组
  */
@@ -58,7 +60,7 @@
 /**
  线条的颜色
  */
-@property (nonatomic, strong) UIColor * _Nullable segmentlineColor;
+//@property (nonatomic, strong) UIColor * _Nullable segmentlineColor;
 /**
  未选中的背景色
  */
@@ -67,8 +69,11 @@
  选中的背景色
  */
 @property (nonatomic, strong) UIColor * _Nullable selectSegmentbackColor;
+
 /**
  选择后的文字
  */
 @property(nonatomic,strong)UILabel * _Nullable segmentLabel;
+
+
 @end
