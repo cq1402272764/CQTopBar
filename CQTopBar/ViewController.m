@@ -22,8 +22,9 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(InfoNotificationAction2:) name:@"123" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(InfoNotificationAction3:) name:@"qwe" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(InfoNotificationAction2:) name:@"Text2" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(InfoNotificationAction3:) name:@"Text3" object:nil];
+    
     self.topBar = [[CQTopBarViewController alloc] init];
     self.topBar.sectionTitles = @[@"Text1",@"Text2",@"Text3"];
     self.topBar.pageViewClasses = @[[Text1 class],[Text2 class],[Text3 class]];

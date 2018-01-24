@@ -52,10 +52,9 @@
     self.segment.titleTextFont = self.titleTextFont;
     self.segment.segmentImage = self.segmentImage;
     self.segment.selectSegmentImage = self.selectSegmentImage;
-    self.segment.segmentlineColor = self.segmentlineColor;
+//    self.segment.segmentlineColor = self.segmentlineColor;
     self.segment.segmentbackColor = self.segmentbackColor;
     self.segment.selectSegmentbackColor = self.selectSegmentbackColor;
-    self.segment.segmentLabel = self.segmentLabel;
 }
 
 - (void)topBarReplaceObjectsAtIndexes:(NSUInteger)indexes withObjects:(id)objects{
@@ -87,7 +86,6 @@
     cell.segmentLabel.highlightedTextColor = self.titleTextColor==nil?[UIColor blackColor]:self.titleTextColor;
     cell.backgroundColor = self.segmentbackColor == nil?[UIColor whiteColor]:self.segmentbackColor;
     cell.segmentImage.image = [UIImage imageNamed:self.segmentImage==nil?@"question_query_arrow_down_default":self.segmentImage];
-//    cell.segmentImage.transform = CGAffineTransformMakeRotation(0);
     [self setViewAnimaWithHeight:0];
 }
 

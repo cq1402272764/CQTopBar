@@ -61,6 +61,7 @@
  线条的颜色
  */
 //@property (nonatomic, strong) UIColor * _Nullable segmentlineColor;
+
 /**
  未选中的背景色
  */
@@ -69,11 +70,6 @@
  选中的背景色
  */
 @property (nonatomic, strong) UIColor * _Nullable selectSegmentbackColor;
-
-/**
- 选择后的文字
- */
-@property(nonatomic,strong)UILabel * _Nullable segmentLabel;
 
 
 @end

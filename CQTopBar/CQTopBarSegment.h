@@ -18,27 +18,16 @@
 @interface CQTopBarSegment : UIView
 @property (nonatomic, weak) id<CQTopBarSegmentDelegate>delegate;
 @property(nonatomic,strong) UICollectionView * collectionView;
-
 - (instancetype)initWithFrame:(CGRect)frame sectionTitles:(NSArray *)sectionTitles;
 - (void)topBarReplaceObjectsAtIndexes:(NSUInteger)indexes withObjects:(id)objects BarView:(CQTopBarView *)barView;
-//- (void)setViewAnimaWithBarView:(CQTopBarView *)barView;
 @property (nonatomic, strong)NSMutableArray * sectionTitles;
-
 @property (nonatomic, strong) UIColor * titleTextColor UI_APPEARANCE_SELECTOR;
-
 @property (nonatomic, strong) UIColor * selectedTitleTextColor UI_APPEARANCE_SELECTOR;
-
 @property (nonatomic, strong)UIFont * titleTextFont;
-
 @property (nonatomic, strong) NSString * segmentImage;
-
 @property (nonatomic, strong) NSString * selectSegmentImage;
-
 @property (nonatomic, strong) UIColor * segmentlineColor;
-
 @property (nonatomic, strong) UIColor * segmentbackColor;
-
 @property (nonatomic, strong) UIColor * selectSegmentbackColor;
 
-@property(nonatomic,strong)UILabel * segmentLabel;
 @end

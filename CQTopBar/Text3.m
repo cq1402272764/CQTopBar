@@ -16,14 +16,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 300)];
+    UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 400)];
     table.delegate = self;
     table.dataSource = self;
     [self.view addSubview:table];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return 15;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -40,7 +40,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *str = [NSString stringWithFormat:@"Text%zd",indexPath.row];
-    NSNotification *notification =[NSNotification notificationWithName:@"qwe" object:str];
+    NSNotification *notification =[NSNotification notificationWithName:@"Text3" object:str];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
 
