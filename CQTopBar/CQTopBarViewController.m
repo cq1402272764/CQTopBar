@@ -69,12 +69,12 @@
     self.segment.selectSegmentbackColor = self.selectSegmentbackColor;
     self.segment.segmentLabel = self.segmentLabel;
 }
+
 - (void)topBarReplaceObjectsAtIndexes:(NSUInteger)indexes withObjects:(id)objects{
-    [self.segment topBarReplaceObjectsAtIndexes:indexes withObjects:objects];
+    [self.segment topBarReplaceObjectsAtIndexes:indexes withObjects:objects BarView:self.barView];
 }
 
 - (void)topBarSegmentWithBlock:(CQTopBarSegment *)segment indexPath:(NSIndexPath *)indexPath{
-    NSLog(@"%ld",indexPath.row);
     [self.barView.topBarCollectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionLeft];
     [self setViewAnimaWithHeight:KScreenHeight-(64+40)];
 }
@@ -89,9 +89,7 @@
     cell.segmentLabel.highlightedTextColor = self.titleTextColor==nil?[UIColor blackColor]:self.titleTextColor;
     cell.backgroundColor = self.segmentbackColor == nil?[UIColor whiteColor]:self.segmentbackColor;
     cell.segmentImage.image = [UIImage imageNamed:self.segmentImage==nil?@"question_query_arrow_down_default":self.segmentImage];
-    [UIView animateWithDuration:0.3 animations:^{
-        cell.segmentImage.transform = CGAffineTransformMakeRotation(0);
-    }];
+//    cell.segmentImage.transform = CGAffineTransformMakeRotation(0);
     [self setViewAnimaWithHeight:0];
 }
 

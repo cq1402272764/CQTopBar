@@ -33,28 +33,11 @@
 }
 
 - (void)InfoNotificationAction2:(NSNotification *)notification{
-    [self.topBar topBarReplaceObjectsAtIndexes:1 withObjects:notification.object];
+    [self.topBar topBarReplaceObjectsAtIndexes:1 withObjects:notification.userInfo[@"text"]];
 }
 
 - (void)InfoNotificationAction3:(NSNotification *)notification{
-    [self.topBar topBarReplaceObjectsAtIndexes:2 withObjects:notification.object];
-}
-
-- (void)text{
-    self.topBar = [[CQTopBarViewController alloc] init];
-    self.topBar.sectionTitles = @[@"Text1",@"Text2",@"Text3"];
-    self.topBar.pageViewClasses = @[[Text1 class],[Text2 class],[Text3 class]];
-    [self.topBar topBarReplaceObjectsAtIndexes:1 withObjects:@"123"];
-    //    topBar.titleTextColor = [UIColor greenColor];
-    //    topBar.selectedTitleTextColor = [UIColor yellowColor];
-    //    topBar.titleTextFont = [UIFont systemFontOfSize:18];
-    //
-    //    topBar.selectSegmentImage = @"question_query_arrow_down_default";
-    //    topBar.segmentImage = @"question_query_arrow_down_selected";
-    //    topBar.segmentlineColor = [UIColor whiteColor];
-    //    topBar.segmentbackColor = [UIColor redColor];
-    //    topBar.selectSegmentbackColor = [UIColor blueColor];
-    [self.navigationController pushViewController:self.topBar animated:YES];
+//    [self.topBar topBarReplaceObjectsAtIndexes:2 withObjects:notification.object];
 }
 
 @end

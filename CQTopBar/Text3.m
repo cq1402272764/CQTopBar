@@ -39,8 +39,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *str = [NSString stringWithFormat:@"text%zd",indexPath.row];
+    NSString *str = [NSString stringWithFormat:@"Text%zd",indexPath.row];
     NSNotification *notification =[NSNotification notificationWithName:@"qwe" object:str];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
+
 @end

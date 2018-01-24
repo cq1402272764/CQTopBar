@@ -8,6 +8,7 @@
 
 #import "CQTopBarSegment.h"
 #import "CQTopBarSegmentCell.h"
+#import "CQTopBarView.h"
 
 #define KScreenWidth [[UIScreen mainScreen] bounds].size.width
 #define KScreenHeight [[UIScreen mainScreen] bounds].size.height
@@ -50,8 +51,13 @@ const NSUInteger defaultTextSize = 13;
     [self.collectionView registerClass:[CQTopBarSegmentCell class] forCellWithReuseIdentifier:ID];
 }
 
-- (void)topBarReplaceObjectsAtIndexes:(NSUInteger)indexes withObjects:(id)objects{
+- (void)topBarReplaceObjectsAtIndexes:(NSUInteger)indexes withObjects:(id)objects BarView:(CQTopBarView *)barView{
     [self.sectionTitles replaceObjectAtIndex:indexes withObject:objects];
+    [UIView animateKeyframesWithDuration:0.3 delay:0 options:UIViewKeyframeAnimationOptionCalculationModePaced animations:^{
+        CGRect rect = barView.frame;
+        rect.size.height = 0;
+        barView.frame = rect;
+    } completion:nil];
     [self.collectionView reloadData];
 }
 
@@ -64,6 +70,8 @@ const NSUInteger defaultTextSize = 13;
     cell.segmentLabel.font = self.titleTextFont==nil?[UIFont systemFontOfSize:defaultTextSize]:self.titleTextFont;
     cell.segmentLabel.textColor = (self.titleTextColor==nil?[UIColor blackColor]:self.titleTextColor);
     cell.segmentLabel.text = self.sectionTitles[indexPath.row];
+//    cell.segmentImage.transform = CGAffineTransformMakeRotation(0);
+    cell.segmentBtn.hidden = YES;
     cell.segmentImage.image = [UIImage imageNamed:self.segmentImage==nil?@"question_query_arrow_down_default":self.segmentImage];
     cell.backgroundColor = self.segmentbackColor == nil?[UIColor whiteColor]:self.segmentbackColor;
     cell.delegate = self;
@@ -79,9 +87,7 @@ const NSUInteger defaultTextSize = 13;
     if ([_delegate respondsToSelector:@selector(topBarSegmentWithBlock:indexPath:)]) {
         [_delegate topBarSegmentWithBlock:self indexPath:indexPath];
     }
-    [UIView animateWithDuration:0.3 animations:^{
-        cell.segmentImage.transform = CGAffineTransformMakeRotation(M_PI);
-    }];
+//    cell.segmentImage.transform = CGAffineTransformMakeRotation(M_PI);
     cell.segmentImage.image = [UIImage imageNamed:self.selectSegmentImage==nil?@"question_query_arrow_down_selected":self.selectSegmentImage];
 }
 
@@ -104,9 +110,7 @@ const NSUInteger defaultTextSize = 13;
 - (void)setupCellAttribute:(CQTopBarSegmentCell *)cell{
     cell.segmentImage.image = [UIImage imageNamed:self.segmentImage==nil?@"question_query_arrow_down_default":self.segmentImage];
     cell.backgroundColor = self.segmentbackColor == nil?[UIColor whiteColor]:self.segmentbackColor;
-    [UIView animateWithDuration:0.3 animations:^{
-        cell.segmentImage.transform = CGAffineTransformMakeRotation(0);
-    }];
+//    cell.segmentImage.transform = CGAffineTransformMakeRotation(0);
 }
 
 @end

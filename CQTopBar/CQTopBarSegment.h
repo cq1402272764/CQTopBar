@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class CQTopBarSegment;
+@class CQTopBarSegment,CQTopBarView;
 @protocol CQTopBarSegmentDelegate <NSObject>
 @optional
 - (void)topBarSegmentWithBlock:(CQTopBarSegment *)segment indexPath:(NSIndexPath *)indexPath;
@@ -20,7 +20,8 @@
 @property(nonatomic,strong) UICollectionView * collectionView;
 
 - (instancetype)initWithFrame:(CGRect)frame sectionTitles:(NSArray *)sectionTitles;
-- (void)topBarReplaceObjectsAtIndexes:(NSUInteger)indexes withObjects:(id)objects;
+- (void)topBarReplaceObjectsAtIndexes:(NSUInteger)indexes withObjects:(id)objects BarView:(CQTopBarView *)barView;
+//- (void)setViewAnimaWithBarView:(CQTopBarView *)barView;
 @property (nonatomic, strong)NSMutableArray * sectionTitles;
 
 @property (nonatomic, strong) UIColor * titleTextColor UI_APPEARANCE_SELECTOR;
