@@ -30,11 +30,13 @@
 }
 
 - (void)initUI{
-    self.segment = [[CQTopBarSegment alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.bounds), 40) sectionTitles:self.sectionTitles];
+    self.segmentFrame = self.segmentFrame.origin.y == 0?CGRectMake(0, 64, CGRectGetWidth(self.view.bounds), 40):self.segmentFrame;
+    
+    self.segment = [[CQTopBarSegment alloc] initWithFrame:self.segmentFrame sectionTitles:self.sectionTitles];
     self.segment.delegate = self;
     [self.view addSubview:self.segment];
     
-    self.barView = [[CQTopBarView alloc] initWithFrame:CGRectMake(0, 64+40, KScreenWidth, 0) pageViews:self.pageViewClasses];
+    self.barView = [[CQTopBarView alloc] initWithFrame:CGRectMake(0, self.segmentFrame.origin.y+self.segmentFrame.size.height, self.segmentFrame.size.width, 0) pageViews:self.pageViewClasses];
     self.barView.delegate = self;
     [self.view addSubview:self.barView];
     
@@ -67,13 +69,13 @@
         [self setViewAnimaWithHeight:0];
         [self.segment.collectionView reloadData];
     }else{
-        [self setViewAnimaWithHeight:KScreenHeight-(64+40)];
+        [self setViewAnimaWithHeight:KScreenHeight-(self.segmentFrame.origin.y+self.segmentFrame.size.height)];
     }
 }
 
 - (void)topBarSegmentWithBlock:(CQTopBarSegment *)segment indexPath:(NSIndexPath *)indexPath{
     [self.barView.topBarCollectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionLeft];
-    [self setViewAnimaWithHeight:KScreenHeight-(64+40)];
+    [self setViewAnimaWithHeight:KScreenHeight-(self.segmentFrame.origin.y+self.segmentFrame.size.height)];
 }
 
 - (void)topBarSegmentWithSegmentView:(CQTopBarSegment *)segmentView{

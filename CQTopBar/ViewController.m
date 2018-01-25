@@ -26,6 +26,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(InfoNotificationAction3:) name:@"Text3" object:nil];
     
     self.topBar = [[CQTopBarViewController alloc] init];
+//    self.topBar.segmentFrame = CGRectMake(0, 100, self.view.frame.size.width, 60);
     self.topBar.sectionTitles = @[@"Text1",@"Text2",@"Text3"];
     self.topBar.pageViewClasses = @[[Text1 class],[Text2 class],[Text3 class]];
     [self addChildViewController:self.topBar];

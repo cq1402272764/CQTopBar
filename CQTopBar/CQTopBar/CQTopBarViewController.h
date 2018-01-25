@@ -23,6 +23,11 @@
 @property (nonatomic, assign) BOOL hiddenView;
 
 /**
+ 设置位置大小:默认在导航栏下，高度40
+ */
+@property (nonatomic, assign) CGRect segmentFrame;
+
+/**
  需要显示的文本数组
  */
 @property (nonatomic, strong) NSArray * _Nullable sectionTitles;
