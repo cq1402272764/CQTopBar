@@ -40,7 +40,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *str = [NSString stringWithFormat:@"Text%zd",indexPath.row];
-    NSNotification *notification =[NSNotification notificationWithName:@"Text3" object:str];
+    NSNotification *notification =[NSNotification notificationWithName:NSStringFromClass([Text3 class]) object:str];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
 

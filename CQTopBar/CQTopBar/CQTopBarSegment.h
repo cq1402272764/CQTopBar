@@ -2,7 +2,7 @@
 //  CQTopBarSegment.h
 //  CQTopBar
 //
-//  Created by yto on 2018/1/10.
+//  Created by CQ on 2018/1/10.
 //  Copyright © 2018年 CQ. All rights reserved.
 //
 

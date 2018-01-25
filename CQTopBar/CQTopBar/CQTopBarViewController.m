@@ -2,7 +2,7 @@
 //  CQTopBarViewController.m
 //  CQTopBar
 //
-//  Created by yto on 2018/1/9.
+//  Created by CQ on 2018/1/9.
 //  Copyright © 2018年 CQ. All rights reserved.
 //
 
