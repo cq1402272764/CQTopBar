@@ -23,7 +23,7 @@
 @property (nonatomic, assign) BOOL hiddenView;
 
 /**
- 设置位置大小:默认在导航栏下，高度40
+ 设置位置和大小:默认: x=0, y=64，w=屏幕的宽度, h=40
  */
 @property (nonatomic, assign) CGRect segmentFrame;
 
