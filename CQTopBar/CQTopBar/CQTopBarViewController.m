@@ -16,10 +16,10 @@
 @property (nonatomic,strong) CQTopBarView * barView;
 @end
 
-#define KScreenWidth [[UIScreen mainScreen] bounds].size.width
-#define KScreenHeight [[UIScreen mainScreen] bounds].size.height
-
 @implementation CQTopBarViewController
+
+const NSUInteger segmentY = 64;
+const NSUInteger segmentH = 40;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,7 +30,7 @@
 }
 
 - (void)initUI{
-    self.segmentFrame = self.segmentFrame.origin.y == 0?CGRectMake(0, 64, CGRectGetWidth(self.view.bounds), 40):self.segmentFrame;
+    self.segmentFrame = self.segmentFrame.origin.y == 0?CGRectMake(0, segmentY, CGRectGetWidth(self.view.bounds), segmentH):self.segmentFrame;
     
     self.segment = [[CQTopBarSegment alloc] initWithFrame:self.segmentFrame sectionTitles:self.sectionTitles];
     self.segment.delegate = self;
@@ -69,13 +69,13 @@
         [self setViewAnimaWithHeight:0];
         [self.segment.collectionView reloadData];
     }else{
-        [self setViewAnimaWithHeight:KScreenHeight-(self.segmentFrame.origin.y+self.segmentFrame.size.height)];
+        [self setViewAnimaWithHeight:self.view.bounds.size.height-(self.segmentFrame.origin.y+self.segmentFrame.size.height)];
     }
 }
 
 - (void)topBarSegmentWithBlock:(CQTopBarSegment *)segment indexPath:(NSIndexPath *)indexPath{
     [self.barView.topBarCollectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionLeft];
-    [self setViewAnimaWithHeight:KScreenHeight-(self.segmentFrame.origin.y+self.segmentFrame.size.height)];
+    [self setViewAnimaWithHeight:self.view.bounds.size.height-(self.segmentFrame.origin.y+self.segmentFrame.size.height)];
 }
 
 - (void)topBarSegmentWithSegmentView:(CQTopBarSegment *)segmentView{

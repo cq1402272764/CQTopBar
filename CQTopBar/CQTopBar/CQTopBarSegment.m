@@ -11,7 +11,6 @@
 #import "CQTopBarView.h"
 
 #define KScreenWidth [[UIScreen mainScreen] bounds].size.width
-#define KScreenHeight [[UIScreen mainScreen] bounds].size.height
 
 @interface CQTopBarSegment ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,CQTopBarSegmentCellDelegate>
 @end
@@ -39,7 +38,7 @@ const NSUInteger defaultTextSize = 13;
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumInteritemSpacing = 1;
     layout.minimumLineSpacing = 1;
-    layout.itemSize = CGSizeMake(KScreenWidth/_sectionTitles.count, frame.size.height-1);
+    layout.itemSize = CGSizeMake(frame.size.width/_sectionTitles.count, frame.size.height-1);
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
     self.collectionView.dataSource = self;

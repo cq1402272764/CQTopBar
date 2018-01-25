@@ -8,7 +8,6 @@
 
 #import "CQTopBarView.h"
 
-#define KScreenWidth [[UIScreen mainScreen] bounds].size.width
 #define KScreenHeight [[UIScreen mainScreen] bounds].size.height
 
 @interface CQTopBarView()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
@@ -30,8 +29,8 @@ static NSString *ID = @"CQTopBarViewCell";
     self = [super initWithFrame:frame];
     if (self) {
         CGRect rect = frame;
+        rect.size.height = KScreenHeight-rect.origin.y;
         rect.origin.y = 0;
-        rect.size.height = KScreenHeight-(64+40);
         frame = rect;
         self.layer.masksToBounds = YES;
         if (pageViews.count != 0) {
