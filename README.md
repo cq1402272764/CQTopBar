@@ -13,13 +13,12 @@
 @implementation ViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.topBar = [[CQTopBarViewController alloc] init];
     self.topBar.sectionTitles = @[@"Text1",@"Text2",@"Text3"];
     self.topBar.pageViewClasses = @[[Text1 class],[Text2 class],[Text3 class]];
     [self addChildViewController:self.topBar];
     [self.view addSubview:self.topBar.view];
-    self.view.backgroundColor = [UIColor whiteColor];
-    }
 }
 ```
 ## 界面显示
