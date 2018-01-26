@@ -28,9 +28,7 @@ const CGFloat spaceX = 3;
     if (self) {
         self.adjustsImageWhenHighlighted = NO;
         self.imageView.contentMode = UIViewContentModeLeft;
-        self.imageView.backgroundColor = [UIColor redColor];
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
-        self.titleLabel.backgroundColor = [UIColor yellowColor];
     }
     return self;
 }

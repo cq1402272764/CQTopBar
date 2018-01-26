@@ -38,7 +38,7 @@ const NSUInteger defaultTextSize = 13;
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumInteritemSpacing = 0;
     layout.minimumLineSpacing = 0;
-    layout.itemSize = CGSizeMake(frame.size.width/_sectionTitles.count, frame.size.height-1);
+    layout.itemSize = CGSizeMake(frame.size.width/_sectionTitles.count, frame.size.height);
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
     self.collectionView.dataSource = self;
@@ -70,6 +70,8 @@ const NSUInteger defaultTextSize = 13;
     [cell.titleImage setTitleColor:self.titleTextColor==nil?[UIColor blackColor]:self.titleTextColor forState:UIControlStateNormal];
     [cell.titleImage setTitle:self.sectionTitles[indexPath.row] forState:UIControlStateNormal];
     cell.segmentBtn.hidden = YES;
+    cell.crossLine.backgroundColor = self.segmentlineColor == nil ? [UIColor grayColor] : self.segmentlineColor;
+    cell.line.backgroundColor = self.segmentlineColor == nil ? [UIColor grayColor] : self.segmentlineColor;
     [cell.titleImage setImage:[UIImage imageNamed:self.segmentImage==nil?@"question_query_arrow_down_default":self.segmentImage] forState:UIControlStateNormal];
     cell.backgroundColor = self.segmentbackColor == nil?[UIColor whiteColor]:self.segmentbackColor;
     if (indexPath.row==self.sectionTitles.count-1) {

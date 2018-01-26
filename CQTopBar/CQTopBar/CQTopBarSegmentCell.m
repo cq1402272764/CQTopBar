@@ -20,8 +20,10 @@
         self.titleImage.userInteractionEnabled = NO;
         
         self.line = [[UIView alloc] init];
-        self.line.backgroundColor = [UIColor redColor];
         [self.contentView addSubview:self.line];
+        
+        self.crossLine = [[UIView alloc] init];
+        [self.contentView addSubview:self.crossLine];
         
         self.segmentBtn = [[UIButton alloc] init];
         self.segmentBtn.hidden = YES;
@@ -35,7 +37,8 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     CGFloat lineW = 0.5;
-    self.line.frame = CGRectMake(CGRectGetWidth(self.bounds)-0.5, CGRectGetHeight(self.bounds)/4, lineW, CGRectGetHeight(self.bounds)/2);
+    self.line.frame = CGRectMake(CGRectGetWidth(self.bounds)-lineW, CGRectGetHeight(self.bounds)/4, lineW, CGRectGetHeight(self.bounds)/2);
+    self.crossLine.frame = CGRectMake(0, CGRectGetHeight(self.bounds)-lineW, CGRectGetWidth(self.bounds), lineW);
     self.titleImage.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds)-lineW, CGRectGetHeight(self.bounds));
     self.segmentBtn.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds)-lineW, CGRectGetHeight(self.bounds));
 }

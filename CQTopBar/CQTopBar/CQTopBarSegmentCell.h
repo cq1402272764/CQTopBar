@@ -19,4 +19,5 @@
 @property(nonatomic,strong) UIButton * segmentBtn;
 @property(nonatomic,strong) CQSegmentTitleImage *titleImage;
 @property(nonatomic,strong) UIView *line;
+@property(nonatomic,strong) UIView *crossLine;
 @end

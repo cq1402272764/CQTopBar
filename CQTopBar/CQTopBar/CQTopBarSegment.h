@@ -26,6 +26,7 @@
 @property (nonatomic, strong)UIFont * titleTextFont;
 @property (nonatomic, strong) NSString * segmentImage;
 @property (nonatomic, strong) NSString * selectSegmentImage;
+@property (nonatomic, strong) UIColor * segmentlineColor;
 @property (nonatomic, strong) UIColor * segmentbackColor;
 @property (nonatomic, strong) UIColor * selectSegmentbackColor;
 

@@ -54,6 +54,7 @@ const NSUInteger segmentH = 40;
     self.segment.titleTextFont = self.titleTextFont;
     self.segment.segmentImage = self.segmentImage;
     self.segment.selectSegmentImage = self.selectSegmentImage;
+    self.segment.segmentlineColor = self.segmentlineColor;
     self.segment.segmentbackColor = self.segmentbackColor;
     self.segment.selectSegmentbackColor = self.selectSegmentbackColor;
 }
