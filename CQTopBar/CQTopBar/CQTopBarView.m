@@ -43,8 +43,8 @@ static NSString *ID = @"CQTopBarViewCell";
 - (void)initUIWithFrame:(CGRect)frame pageViews:(NSArray *)pageViews{
     self.pageView = pageViews;
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.minimumInteritemSpacing = 1;
-    layout.minimumLineSpacing = 1;
+//    layout.minimumInteritemSpacing = 1;
+//    layout.minimumLineSpacing = 1;
     layout.itemSize = CGSizeMake(frame.size.width, frame.size.height);
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.topBarCollectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];

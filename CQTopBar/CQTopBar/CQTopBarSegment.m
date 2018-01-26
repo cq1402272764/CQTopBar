@@ -36,8 +36,8 @@ const NSUInteger defaultTextSize = 13;
 - (void)initUIWithFrame:(CGRect)frame sectionTitles:(NSArray *)sectionTitles{
     self.sectionTitles = [NSMutableArray arrayWithArray:sectionTitles];
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.minimumInteritemSpacing = 1;
-    layout.minimumLineSpacing = 1;
+    layout.minimumInteritemSpacing = 0;
+    layout.minimumLineSpacing = 0;
     layout.itemSize = CGSizeMake(frame.size.width/_sectionTitles.count, frame.size.height-1);
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
@@ -45,7 +45,8 @@ const NSUInteger defaultTextSize = 13;
     self.collectionView.delegate = self;
     self.collectionView.scrollEnabled = NO;
     self.collectionView.showsHorizontalScrollIndicator = NO;
-    self.collectionView.backgroundColor = self.segmentlineColor==nil?[UIColor grayColor]:self.segmentlineColor;
+//    self.collectionView.backgroundColor = self.segmentlineColor==nil?[UIColor whiteColor]:self.segmentlineColor;
+    self.collectionView.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.collectionView];
     [self.collectionView registerClass:[CQTopBarSegmentCell class] forCellWithReuseIdentifier:ID];
 }
@@ -76,6 +77,12 @@ const NSUInteger defaultTextSize = 13;
 //    cell.segmentImage.image = [UIImage imageNamed:self.segmentImage==nil?@"question_query_arrow_down_default":self.segmentImage];
     [cell.titleImage setImage:[UIImage imageNamed:self.segmentImage==nil?@"question_query_arrow_down_default":self.segmentImage] forState:UIControlStateNormal];
     cell.backgroundColor = self.segmentbackColor == nil?[UIColor whiteColor]:self.segmentbackColor;
+    if (indexPath.row==self.sectionTitles.count-1) {
+        cell.line.hidden = YES;
+    }else{
+        cell.line.hidden = NO;
+    }
+    
     cell.delegate = self;
     return cell;
 }

@@ -19,5 +19,6 @@
 //@property(nonatomic,strong) UILabel * segmentLabel;
 //@property(nonatomic,strong) UIImageView * segmentImage;
 @property(nonatomic,strong) UIButton * segmentBtn;
-@property(nonatomic,strong) UIButton *titleImage;
+@property(nonatomic,strong) CQSegmentTitleImage *titleImage;
+@property(nonatomic,strong) UIView *line;
 @end

@@ -248,6 +248,11 @@
 					42646DE62004680500638400 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					42646DFE2004680800638400 = {
 						CreatedOnToolsVersion = 9.2;
