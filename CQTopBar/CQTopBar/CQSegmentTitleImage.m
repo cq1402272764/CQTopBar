@@ -16,6 +16,9 @@
 
 @implementation CQSegmentTitleImage
 
+const CGFloat space = 5;
+const CGFloat spaceX = 3;
+
 + (instancetype)segmentTitleImageButtons{
     return [[self alloc] init];
 }
@@ -34,13 +37,7 @@
 
 - (CGRect)titleRectForContentRect:(CGRect)contentRect{
     UIImage *image = [self imageForState:UIControlStateNormal];
-    CGFloat space = 5;
-    CGFloat spaceX = 3;
     CGFloat titleX = (contentRect.size.width-([self titleWithWidth:contentRect.size.width]+image.size.width+space)-spaceX*2)/2+spaceX;
-    if (titleX <= 0)
-    {
-        titleX = spaceX;
-    }
     CGFloat titleY = 0;
     CGFloat titleW = [self titleWithWidth:contentRect.size.width];
     
@@ -50,8 +47,6 @@
 
 - (CGRect)imageRectForContentRect:(CGRect)contentRect{
     UIImage *image = [self imageForState:UIControlStateNormal];
-    CGFloat space = 5;
-    CGFloat spaceX = 3;
     CGFloat imageX = (contentRect.size.width-([self titleWithWidth:contentRect.size.width]+image.size.width+space)-spaceX*2)/2+[self titleWithWidth:contentRect.size.width]+space+spaceX;
     CGFloat imageY = 0;
     CGFloat imageW = image.size.width;
@@ -60,9 +55,11 @@
 }
 
 - (CGFloat)titleWithWidth:(CGFloat)width{
+    UIImage *image = [self imageForState:UIControlStateNormal];
     NSString *title = [self titleForState:UIControlStateNormal];
     CGSize size = CGSizeMake(width, MAXFLOAT);
     CGFloat titleW = [title boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} context:nil].size.width;
+    if (titleW+space+image.size.width+spaceX*2>width) titleW = width - space -image.size.width-spaceX*2;
     return titleW;
 }
 

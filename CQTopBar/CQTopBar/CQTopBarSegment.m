@@ -45,7 +45,6 @@ const NSUInteger defaultTextSize = 13;
     self.collectionView.delegate = self;
     self.collectionView.scrollEnabled = NO;
     self.collectionView.showsHorizontalScrollIndicator = NO;
-//    self.collectionView.backgroundColor = self.segmentlineColor==nil?[UIColor whiteColor]:self.segmentlineColor;
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.collectionView];
     [self.collectionView registerClass:[CQTopBarSegmentCell class] forCellWithReuseIdentifier:ID];
@@ -67,14 +66,10 @@ const NSUInteger defaultTextSize = 13;
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     CQTopBarSegmentCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
-//    cell.segmentLabel.font = self.titleTextFont==nil?[UIFont systemFontOfSize:defaultTextSize]:self.titleTextFont;
     cell.titleImage.titleLabel.font = self.titleTextFont==nil?[UIFont systemFontOfSize:defaultTextSize]:self.titleTextFont;
-//    cell.segmentLabel.textColor = (self.titleTextColor==nil?[UIColor blackColor]:self.titleTextColor);
     [cell.titleImage setTitleColor:self.titleTextColor==nil?[UIColor blackColor]:self.titleTextColor forState:UIControlStateNormal];
-//    cell.segmentLabel.text = self.sectionTitles[indexPath.row];
     [cell.titleImage setTitle:self.sectionTitles[indexPath.row] forState:UIControlStateNormal];
     cell.segmentBtn.hidden = YES;
-//    cell.segmentImage.image = [UIImage imageNamed:self.segmentImage==nil?@"question_query_arrow_down_default":self.segmentImage];
     [cell.titleImage setImage:[UIImage imageNamed:self.segmentImage==nil?@"question_query_arrow_down_default":self.segmentImage] forState:UIControlStateNormal];
     cell.backgroundColor = self.segmentbackColor == nil?[UIColor whiteColor]:self.segmentbackColor;
     if (indexPath.row==self.sectionTitles.count-1) {
@@ -91,13 +86,11 @@ const NSUInteger defaultTextSize = 13;
     CQTopBarSegmentCell *cell = (CQTopBarSegmentCell *)[collectionView cellForItemAtIndexPath:indexPath];
     cell.selected = YES;
     cell.segmentBtn.hidden = !cell.selected;
-//    cell.segmentLabel.highlightedTextColor = self.selectedTitleTextColor==nil?[UIColor redColor]:self.selectedTitleTextColor;
     [cell.titleImage setTitleColor:self.selectedTitleTextColor == nil?[UIColor redColor]:self.selectedTitleTextColor forState:UIControlStateNormal];
     cell.backgroundColor = self.selectSegmentbackColor == nil?[UIColor whiteColor]:self.selectSegmentbackColor;
     if ([_delegate respondsToSelector:@selector(topBarSegmentWithBlock:indexPath:)]) {
         [_delegate topBarSegmentWithBlock:self indexPath:indexPath];
     }
-//    cell.segmentImage.image = [UIImage imageNamed:self.selectSegmentImage==nil?@"question_query_arrow_down_selected":self.selectSegmentImage];
     [cell.titleImage setImage:[UIImage imageNamed:self.selectSegmentImage==nil?@"question_query_arrow_down_selected":self.selectSegmentImage] forState:UIControlStateNormal];
 }
 
@@ -118,9 +111,7 @@ const NSUInteger defaultTextSize = 13;
 }
 
 - (void)setupCellAttribute:(CQTopBarSegmentCell *)cell{
-//    cell.segmentImage.image = [UIImage imageNamed:self.segmentImage==nil?@"question_query_arrow_down_default":self.segmentImage];
     [cell.titleImage setImage:[UIImage imageNamed:self.selectSegmentImage==nil?@"question_query_arrow_down_default":self.selectSegmentImage] forState:UIControlStateNormal];
-//    topBar.segmentLabel.highlightedTextColor = self.titleTextColor==nil?[UIColor blackColor]:self.titleTextColor;
     [cell.titleImage setTitleColor:self.titleTextColor==nil?[UIColor blackColor]:self.titleTextColor forState:UIControlStateNormal];
     cell.backgroundColor = self.segmentbackColor == nil?[UIColor whiteColor]:self.segmentbackColor;
 }

@@ -35,7 +35,6 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     CGFloat lineW = 0.5;
-//    CGFloat titleImageX = 5;
     self.line.frame = CGRectMake(CGRectGetWidth(self.bounds)-0.5, CGRectGetHeight(self.bounds)/4, lineW, CGRectGetHeight(self.bounds)/2);
     self.titleImage.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds)-lineW, CGRectGetHeight(self.bounds));
     self.segmentBtn.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds)-lineW, CGRectGetHeight(self.bounds));

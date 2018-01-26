@@ -16,8 +16,6 @@
 @end
 @interface CQTopBarSegmentCell : UICollectionViewCell
 @property (nonatomic, weak) id<CQTopBarSegmentCellDelegate>delegate;
-//@property(nonatomic,strong) UILabel * segmentLabel;
-//@property(nonatomic,strong) UIImageView * segmentImage;
 @property(nonatomic,strong) UIButton * segmentBtn;
 @property(nonatomic,strong) CQSegmentTitleImage *titleImage;
 @property(nonatomic,strong) UIView *line;

@@ -54,7 +54,6 @@ const NSUInteger segmentH = 40;
     self.segment.titleTextFont = self.titleTextFont;
     self.segment.segmentImage = self.segmentImage;
     self.segment.selectSegmentImage = self.selectSegmentImage;
-//    self.segment.segmentlineColor = self.segmentlineColor;
     self.segment.segmentbackColor = self.segmentbackColor;
     self.segment.selectSegmentbackColor = self.selectSegmentbackColor;
 }
@@ -85,10 +84,8 @@ const NSUInteger segmentH = 40;
 - (void)topBarWithBarView:(CQTopBarView *)segment indexPath:(NSIndexPath *)indexPath{
     CQTopBarSegmentCell *cell = (CQTopBarSegmentCell *)[self.segment.collectionView cellForItemAtIndexPath:indexPath];
     cell.segmentBtn.hidden = YES;
-//    cell.segmentLabel.highlightedTextColor = self.titleTextColor==nil?[UIColor blackColor]:self.titleTextColor;
     [cell.titleImage setTitleColor:self.titleTextColor==nil?[UIColor blackColor]:self.titleTextColor forState:UIControlStateNormal];
     cell.backgroundColor = self.segmentbackColor == nil?[UIColor whiteColor]:self.segmentbackColor;
-//    cell.segmentImage.image = [UIImage imageNamed:self.segmentImage==nil?@"question_query_arrow_down_default":self.segmentImage];
      [cell.titleImage setImage:[UIImage imageNamed:self.segmentImage==nil?@"question_query_arrow_down_default":self.segmentImage] forState:UIControlStateNormal];
     [self setViewAnimaWithHeight:0];
 }

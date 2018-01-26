@@ -63,11 +63,6 @@
 @property (nonatomic, strong) NSString * _Nullable selectSegmentImage;
 
 /**
- 线条的颜色
- */
-//@property (nonatomic, strong) UIColor * _Nullable segmentlineColor;
-
-/**
  未选中的背景色
  */
 @property (nonatomic, strong) UIColor * _Nullable segmentbackColor;
