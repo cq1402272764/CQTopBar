@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CQSegmentTitleImage.h"
 
 @class CQTopBarSegmentCell;
 @protocol CQTopBarSegmentCellDelegate <NSObject>
@@ -15,7 +16,8 @@
 @end
 @interface CQTopBarSegmentCell : UICollectionViewCell
 @property (nonatomic, weak) id<CQTopBarSegmentCellDelegate>delegate;
-@property(nonatomic,strong)UILabel * segmentLabel;
-@property(nonatomic,strong)UIImageView * segmentImage;
-@property(nonatomic,strong)UIButton * segmentBtn;
+//@property(nonatomic,strong) UILabel * segmentLabel;
+//@property(nonatomic,strong) UIImageView * segmentImage;
+@property(nonatomic,strong) UIButton * segmentBtn;
+@property(nonatomic,strong) UIButton *titleImage;
 @end

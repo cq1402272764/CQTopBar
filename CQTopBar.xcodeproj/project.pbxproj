@@ -22,6 +22,7 @@
 		42C44E7320196CB9007425A6 /* CQTopBarSegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C44E6D20196CB9007425A6 /* CQTopBarSegmentCell.m */; };
 		42C44E7420196CB9007425A6 /* CQTopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C44E6F20196CB9007425A6 /* CQTopBarView.m */; };
 		42C44E7520196CB9007425A6 /* CQTopBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C44E7120196CB9007425A6 /* CQTopBarViewController.m */; };
+		42C44E7B2019B71E007425A6 /* CQSegmentTitleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C44E7A2019B71E007425A6 /* CQSegmentTitleImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		42C44E6F20196CB9007425A6 /* CQTopBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQTopBarView.m; sourceTree = "<group>"; };
 		42C44E7020196CB9007425A6 /* CQTopBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQTopBarViewController.h; sourceTree = "<group>"; };
 		42C44E7120196CB9007425A6 /* CQTopBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQTopBarViewController.m; sourceTree = "<group>"; };
+		42C44E792019B71E007425A6 /* CQSegmentTitleImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CQSegmentTitleImage.h; sourceTree = "<group>"; };
+		42C44E7A2019B71E007425A6 /* CQSegmentTitleImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CQSegmentTitleImage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +174,8 @@
 				42C44E6F20196CB9007425A6 /* CQTopBarView.m */,
 				42C44E7020196CB9007425A6 /* CQTopBarViewController.h */,
 				42C44E7120196CB9007425A6 /* CQTopBarViewController.m */,
+				42C44E792019B71E007425A6 /* CQSegmentTitleImage.h */,
+				42C44E7A2019B71E007425A6 /* CQSegmentTitleImage.m */,
 			);
 			path = CQTopBar;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 				42C44E7220196CB9007425A6 /* CQTopBarSegment.m in Sources */,
 				42699135201571A700B55450 /* Text2.m in Sources */,
 				42699138201571B800B55450 /* Text3.m in Sources */,
+				42C44E7B2019B71E007425A6 /* CQSegmentTitleImage.m in Sources */,
 				42C44E7420196CB9007425A6 /* CQTopBarView.m in Sources */,
 				42646DFA2004680600638400 /* main.m in Sources */,
 				42646DEC2004680500638400 /* AppDelegate.m in Sources */,
@@ -483,6 +489,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = SPJ74MPHW7;
 				INFOPLIST_FILE = CQTopBar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cn.yto.YtoStation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -499,6 +506,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = SPJ74MPHW7;
 				INFOPLIST_FILE = CQTopBar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cn.yto.YtoStation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
