@@ -33,7 +33,6 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     cell.textLabel.text = [NSString stringWithFormat:@"text%zd",indexPath.row];
-    cell.backgroundColor = [UIColor purpleColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
