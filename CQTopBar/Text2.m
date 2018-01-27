@@ -34,12 +34,12 @@
     }
     cell.backgroundColor = [UIColor redColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = [NSString stringWithFormat:@"texttextwe%zd",indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"Text%zd",indexPath.row];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *str = [NSString stringWithFormat:@"texttextwewww%zd",indexPath.row];
+    NSString *str = [NSString stringWithFormat:@"Text%zd",indexPath.row];
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:str,@"text", nil];
     NSNotification *notification = [NSNotification notificationWithName:NSStringFromClass([Text2 class]) object:nil userInfo:dict];
     [[NSNotificationCenter defaultCenter] postNotification:notification];

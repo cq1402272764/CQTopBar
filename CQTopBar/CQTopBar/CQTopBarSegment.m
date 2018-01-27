@@ -98,7 +98,6 @@ const NSUInteger defaultTextSize = 13;
 
 - (void)topBarSegmentCellWithBlock:(CQTopBarSegmentCell *)topBar{
     topBar.segmentBtn.hidden = YES;
-    [topBar.titleImage setImage:[UIImage imageNamed:self.segmentImage==nil?@"question_query_arrow_down_default":self.segmentImage] forState:UIControlStateNormal];
     if ([_delegate respondsToSelector:@selector(topBarSegmentWithSegmentView:)]) {
         [_delegate topBarSegmentWithSegmentView:self];
     }
@@ -113,6 +112,7 @@ const NSUInteger defaultTextSize = 13;
 }
 
 - (void)setupCellAttribute:(CQTopBarSegmentCell *)cell{
+    [cell.titleImage setImage:[UIImage imageNamed:self.segmentImage==nil?@"question_query_arrow_down_default":self.segmentImage] forState:UIControlStateNormal];
     [cell.titleImage setTitleColor:self.titleTextColor==nil?[UIColor blackColor]:self.titleTextColor forState:UIControlStateNormal];
     cell.backgroundColor = self.segmentbackColor == nil?[UIColor whiteColor]:self.segmentbackColor;
 }
