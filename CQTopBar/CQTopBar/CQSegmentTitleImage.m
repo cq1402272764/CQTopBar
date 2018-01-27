@@ -8,10 +8,6 @@
 
 #import "CQSegmentTitleImage.h"
 
-@interface CQSegmentTitleImage()
-@property (nonatomic, assign) CGFloat titleW;
-@end
-
 @implementation CQSegmentTitleImage
 
 const CGFloat space = 5;
@@ -32,22 +28,25 @@ const CGFloat spaceX = 3;
 }
 
 - (CGRect)titleRectForContentRect:(CGRect)contentRect{
-    UIImage *image = [self imageForState:UIControlStateNormal];
-    CGFloat titleX = (contentRect.size.width-([self titleWithWidth:contentRect.size.width]+image.size.width+space)-spaceX*2)/2+spaceX;
+    CGFloat titleX = [self gapWithWidth:contentRect]/2+spaceX;
     CGFloat titleY = 0;
     CGFloat titleW = [self titleWithWidth:contentRect.size.width];
-    
     CGFloat titleH = contentRect.size.height;
     return CGRectMake(titleX, titleY, titleW, titleH);
 }
 
 - (CGRect)imageRectForContentRect:(CGRect)contentRect{
     UIImage *image = [self imageForState:UIControlStateNormal];
-    CGFloat imageX = (contentRect.size.width-([self titleWithWidth:contentRect.size.width]+image.size.width+space)-spaceX*2)/2+[self titleWithWidth:contentRect.size.width]+space+spaceX;
+    CGFloat imageX = [self gapWithWidth:contentRect]/2+[self titleWithWidth:contentRect.size.width]+space+spaceX;
     CGFloat imageY = 0;
     CGFloat imageW = image.size.width;
     CGFloat imageH = contentRect.size.height;
     return CGRectMake(imageX, imageY, imageW, imageH);
+}
+
+- (CGFloat)gapWithWidth:(CGRect)contentRect{
+    UIImage *image = [self imageForState:UIControlStateNormal];
+    return contentRect.size.width-([self titleWithWidth:contentRect.size.width]+image.size.width+space)-spaceX*2;
 }
 
 - (CGFloat)titleWithWidth:(CGFloat)width{
