@@ -8,8 +8,6 @@
 
 #import "CQSegmentTitleImage.h"
 
-
-
 @interface CQSegmentTitleImage()
 @property (nonatomic, assign) CGFloat titleW;
 @end
