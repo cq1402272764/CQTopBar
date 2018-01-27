@@ -56,7 +56,8 @@ const CGFloat spaceX = 3;
     UIImage *image = [self imageForState:UIControlStateNormal];
     NSString *title = [self titleForState:UIControlStateNormal];
     CGSize size = CGSizeMake(width, MAXFLOAT);
-    CGFloat titleW = [title boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} context:nil].size.width;
+    self.segmentTitleFont = self.segmentTitleFont==nil?[UIFont systemFontOfSize:13]:self.segmentTitleFont;
+    CGFloat titleW = [title boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:self.segmentTitleFont} context:nil].size.width;
     if (titleW+space+image.size.width+spaceX*2>width) titleW = width - space -image.size.width-spaceX*2;
     return titleW;
 }

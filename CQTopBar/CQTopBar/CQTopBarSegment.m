@@ -67,6 +67,7 @@ const NSUInteger defaultTextSize = 13;
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     CQTopBarSegmentCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
     cell.titleImage.titleLabel.font = self.titleTextFont==nil?[UIFont systemFontOfSize:defaultTextSize]:self.titleTextFont;
+    cell.titleImage.segmentTitleFont = cell.titleImage.titleLabel.font;
     [cell.titleImage setTitleColor:self.titleTextColor==nil?[UIColor blackColor]:self.titleTextColor forState:UIControlStateNormal];
     [cell.titleImage setTitle:self.sectionTitles[indexPath.row] forState:UIControlStateNormal];
     cell.segmentBtn.hidden = YES;
@@ -79,7 +80,6 @@ const NSUInteger defaultTextSize = 13;
     }else{
         cell.line.hidden = NO;
     }
-    
     cell.delegate = self;
     return cell;
 }
@@ -98,6 +98,7 @@ const NSUInteger defaultTextSize = 13;
 
 - (void)topBarSegmentCellWithBlock:(CQTopBarSegmentCell *)topBar{
     topBar.segmentBtn.hidden = YES;
+    [topBar.titleImage setImage:[UIImage imageNamed:self.segmentImage==nil?@"question_query_arrow_down_default":self.segmentImage] forState:UIControlStateNormal];
     if ([_delegate respondsToSelector:@selector(topBarSegmentWithSegmentView:)]) {
         [_delegate topBarSegmentWithSegmentView:self];
     }
@@ -106,14 +107,12 @@ const NSUInteger defaultTextSize = 13;
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
     CQTopBarSegmentCell *cell = (CQTopBarSegmentCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    
     cell.selected = NO;
     cell.segmentBtn.hidden = !cell.selected;
     [self setupCellAttribute:cell];
 }
 
 - (void)setupCellAttribute:(CQTopBarSegmentCell *)cell{
-    [cell.titleImage setImage:[UIImage imageNamed:self.selectSegmentImage==nil?@"question_query_arrow_down_default":self.selectSegmentImage] forState:UIControlStateNormal];
     [cell.titleImage setTitleColor:self.titleTextColor==nil?[UIColor blackColor]:self.titleTextColor forState:UIControlStateNormal];
     cell.backgroundColor = self.segmentbackColor == nil?[UIColor whiteColor]:self.segmentbackColor;
 }

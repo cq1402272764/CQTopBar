@@ -11,6 +11,9 @@
 #import "CQTopBarView.h"
 #import "CQTopBarSegmentCell.h"
 
+//#define kFBaseHeight [[UIScreen mainScreen]bounds].size.height
+//#define kFBaseWidth [[UIScreen mainScreen]bounds].size.width
+
 @interface CQTopBarViewController ()<CQTopBarSegmentDelegate,CQTopBarViewDelegate>
 @property (nonatomic,strong) CQTopBarSegment * segment;
 @property (nonatomic,strong) CQTopBarView * barView;

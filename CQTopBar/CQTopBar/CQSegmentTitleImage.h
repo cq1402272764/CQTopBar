@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CQSegmentTitleImage : UIButton
-
+@property (nonatomic, strong) UIFont *segmentTitleFont;
 + (instancetype)segmentTitleImageButtons;
-
 @end

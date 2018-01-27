@@ -21,7 +21,6 @@
         
         self.line = [[UIView alloc] init];
         [self.contentView addSubview:self.line];
-        
         self.crossLine = [[UIView alloc] init];
         [self.contentView addSubview:self.crossLine];
         
