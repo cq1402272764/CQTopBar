@@ -10,8 +10,6 @@
 #import "CQTopBarSegmentCell.h"
 #import "CQTopBarView.h"
 
-#define KScreenWidth [[UIScreen mainScreen] bounds].size.width
-
 @interface CQTopBarSegment ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,CQTopBarSegmentCellDelegate>
 @end
 
