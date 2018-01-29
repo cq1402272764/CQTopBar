@@ -3,6 +3,11 @@
 快速集成下拉菜单控件，可自定义内容、属性、位置和大小，传入需要显示的标题文字和需要显示的控制器即可，请查看示例程序或者demo。
 ### 【注】
 - 所传入的标题文字数组和显示的控制器数组个数必须一致。
+### CocoaPods
+
+1. Add `pod 'CQTopBar',` to your Podfile.
+
+2. Run `pod install` or `pod update`.
 
 ## <a id="TopBar"></a> TopBar【示例】
 ```objc
