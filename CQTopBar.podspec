@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "CQTopBar"
-    s.version      = "1.0.1"
+    s.version      = "1.0.3"
     s.summary      = "快速集成下拉菜单的小控件"
     s.homepage     = "https://github.com/cq1402272764/CQTopBar"
     s.authors      = {"CQ_ Develop" => "1402272764@qq.com"}
