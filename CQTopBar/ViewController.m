@@ -12,7 +12,7 @@
 #import "Text2.h"
 #import "Text3.h"
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) CQTopBarViewController *topBar;
 @end
 
@@ -30,6 +30,11 @@
     self.topBar.pageViewClasses = @[[Text1 class],[Text2 class],[Text3 class]];
     [self addChildViewController:self.topBar];
     [self.view addSubview:self.topBar.view];
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.topBar.footerView.bounds.size.height)];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    [self.topBar.footerView addSubview:tableView];
 }
 
 - (void)InfoNotificationAction2:(NSNotification *)notification{
@@ -39,5 +44,20 @@
 - (void)InfoNotificationAction3:(NSNotification *)notification{
     self.topBar.hiddenView = YES;
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 20;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *ID = @"TableViewCell";
+    UITableViewCell *cell  = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    }
+    cell.textLabel.text = @"TableViewCell";
+    return cell;
+}
+
 
 @end

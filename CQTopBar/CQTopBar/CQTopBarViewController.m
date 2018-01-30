@@ -30,13 +30,23 @@ const NSUInteger segmentH = 40;
 }
 
 - (void)initUI{
-    self.segmentFrame = self.segmentFrame.origin.y == 0?CGRectMake(0, segmentY, CGRectGetWidth(self.view.bounds), segmentH):self.segmentFrame;
+    CGFloat segmentFrameX = self.segmentFrame.origin.x == 0?0:self.segmentFrame.origin.x;
+    CGFloat segmentFrameY = self.segmentFrame.origin.y == 0?segmentY:self.segmentFrame.origin.y;
+    CGFloat segmentFrameW = self.segmentFrame.size.width == 0?CGRectGetWidth(self.view.bounds):self.segmentFrame.size.width;
+    CGFloat segmentFrameH = self.segmentFrame.size.height == 0?segmentH:self.segmentFrame.size.height;
     
-    self.segment = [[CQTopBarSegment alloc] initWithFrame:self.segmentFrame sectionTitles:self.sectionTitles];
+//    self.segmentFrame = self.segmentFrame.origin.y == 0?CGRectMake(0, segmentY, CGRectGetWidth(self.view.bounds), segmentH):self.segmentFrame;
+    
+    self.footerView = [[UIView alloc] initWithFrame:CGRectMake(segmentFrameX, segmentFrameY+segmentFrameH, segmentFrameW, self.view.bounds.size.height-segmentFrameY-segmentFrameH)];
+    self.footerView.backgroundColor = [UIColor redColor];
+    [self.view addSubview:self.footerView];
+    
+    CGRect segmentFrame = CGRectMake(segmentFrameX, segmentFrameY, segmentFrameW, segmentFrameH);
+    self.segment = [[CQTopBarSegment alloc] initWithFrame:segmentFrame sectionTitles:self.sectionTitles];
     self.segment.delegate = self;
     [self.view addSubview:self.segment];
     
-    self.barView = [[CQTopBarView alloc] initWithFrame:CGRectMake(0, self.segmentFrame.origin.y+self.segmentFrame.size.height, self.segmentFrame.size.width, 0) pageViews:self.pageViewClasses];
+    self.barView = [[CQTopBarView alloc] initWithFrame:CGRectMake(segmentFrameX, segmentFrameY+segmentFrameH, segmentFrameW, 0) pageViews:self.pageViewClasses];
     self.barView.delegate = self;
     [self.view addSubview:self.barView];
     

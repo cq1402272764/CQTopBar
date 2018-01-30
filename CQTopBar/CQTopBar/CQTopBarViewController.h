@@ -23,6 +23,11 @@
 @property (nonatomic, assign) BOOL hiddenView;
 
 /**
+ segment的footerView
+ */
+@property (nonatomic, strong) UIView * _Nullable footerView;
+
+/**
  设置位置和大小:默认: x=0, y=64，w=屏幕的宽度, h=40
  */
 @property (nonatomic, assign) CGRect segmentFrame;

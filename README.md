@@ -24,6 +24,11 @@
     self.topBar.pageViewClasses = @[[Text1 class],[Text2 class],[Text3 class]];
     [self addChildViewController:self.topBar];
     [self.view addSubview:self.topBar.view];
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.topBar.footerView.bounds.size.height)];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    [self.topBar.footerView addSubview:tableView];
 }
 ```
 ## 界面显示
