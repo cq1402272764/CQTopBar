@@ -81,7 +81,9 @@ const NSUInteger segmentH = 40;
 }
 
 - (void)topBarSegmentWithBlock:(CQTopBarSegment *)segment indexPath:(NSIndexPath *)indexPath{
+    
     [self.barView.topBarCollectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionLeft];
+//    [self.barView.topBarCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
     [self setViewAnimaWithHeight:self.view.bounds.size.height-(self.segmentFrame.origin.y+self.segmentFrame.size.height)];
 }
 

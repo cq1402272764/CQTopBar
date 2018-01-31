@@ -62,8 +62,11 @@ static NSString *ID = @"CQTopBarViewCell";
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
-    cell.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+    for (UIView *subView in cell.contentView.subviews) {
+        [subView removeFromSuperview];
+    }
     [cell.contentView addSubview:self.viewArray[indexPath.row]];
+    cell.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
     return cell;
 }
 
