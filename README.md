@@ -9,6 +9,8 @@
 
 2. Run `pod install` or `pod update`.
 
+#### 简书地址：https://www.jianshu.com/p/b8f8f73b0efa
+
 ## <a id="TopBar"></a> TopBar【示例】
 ```objc
 @interface ViewController ()
