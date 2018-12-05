@@ -35,4 +35,4 @@
 ```
 ## 界面显示
 
-![image](https://github.com/cq1402272764/CQTopBar/blob/master/Res/TopBar.png)
+![image](https://github.com/cq1402272764/CQTopBar/blob/master/Res/TopBar.gif)
