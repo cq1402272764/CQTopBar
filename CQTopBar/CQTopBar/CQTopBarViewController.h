@@ -40,56 +40,56 @@
 /**
  要加载的ViewController，传ClassName即可
  */
-@property(nonatomic, copy) NSArray * _Nullable pageViewClasses;
+@property(nonatomic, strong) NSArray * _Nullable pageViewClasses;
 
 /**
  不选中时文本的颜色
  */
-@property (nonatomic, weak) UIColor * _Nullable titleTextColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIColor * _Nullable titleTextColor UI_APPEARANCE_SELECTOR;
 
 /**
  选中文本的颜色
  */
-@property (nonatomic, weak) UIColor * _Nullable selectedTitleTextColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIColor * _Nullable selectedTitleTextColor UI_APPEARANCE_SELECTOR;
 
 /**
  需要显示的文本字体
  */
-@property (nonatomic, weak) UIFont * _Nullable titleTextFont;
+@property (nonatomic, strong) UIFont * _Nullable titleTextFont;
 
 /**
  未选中后的图标
  */
-@property (nonatomic, copy) NSString * _Nullable segmentImage;
+@property (nonatomic, strong) NSString * _Nullable segmentImage;
 
 /**
  选中后的图标
  */
-@property (nonatomic, copy) NSString * _Nullable selectSegmentImage;
+@property (nonatomic, strong) NSString * _Nullable selectSegmentImage;
 
 /**
  线条的颜色
  */
-@property (nonatomic, weak) UIColor * _Nullable segmentlineColor;
+@property (nonatomic, strong) UIColor * _Nullable segmentlineColor;
 
 /**
  未选中的背景色
  */
-@property (nonatomic, weak) UIColor * _Nullable segmentbackColor;
+@property (nonatomic, strong) UIColor * _Nullable segmentbackColor;
 
 /**
  选中的背景色
  */
-@property (nonatomic, weak) UIColor * _Nullable selectSegmentbackColor;
+@property (nonatomic, strong) UIColor * _Nullable selectSegmentbackColor;
 
 /**
  未选中的背景图
  */
-@property (nonatomic, weak) UIImage * _Nullable segmentbackImage;
+@property (nonatomic, strong) UIImage * _Nullable segmentbackImage;
 
 /**
  选中的背景图
  */
-@property (nonatomic, weak) UIImage * _Nullable selectSegmentbackImage;
+@property (nonatomic, strong) UIImage * _Nullable selectSegmentbackImage;
 
 @end
