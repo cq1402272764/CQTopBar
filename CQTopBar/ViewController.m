@@ -28,6 +28,9 @@
     self.topBar = [[CQTopBarViewController alloc] init];
     self.topBar.sectionTitles = @[@"Text1",@"Text2Text2",@"Text3"];
     self.topBar.pageViewClasses = @[[Text1 class],[Text2 class],[Text3 class]];
+    self.topBar.segmentbackImage = [UIImage imageNamed:@"userorder_cancelbtn_highlight"];
+    self.topBar.selectSegmentbackImage = [UIImage imageNamed:@"main_searchbutton_normal"];
+    self.topBar.segmentlineColor = [UIColor whiteColor];
     [self addChildViewController:self.topBar];
     [self.view addSubview:self.topBar.view];
     

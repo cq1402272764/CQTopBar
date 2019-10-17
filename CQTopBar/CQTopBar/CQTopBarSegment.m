@@ -74,6 +74,8 @@ const NSUInteger defaultTextSize = 13;
     // question_query_arrow_down_default
     [cell.titleImage setImage:[UIImage imageNamed:self.segmentImage==nil?@"":self.segmentImage] forState:UIControlStateNormal];
     cell.backgroundColor = self.segmentbackColor == nil?[UIColor whiteColor]:self.segmentbackColor;
+    cell.backImageView.image = self.segmentbackImage;
+    [cell.segmentBtn setBackgroundImage:self.selectSegmentbackImage forState:UIControlStateNormal];
     if (indexPath.row==self.sectionTitles.count-1) {
         cell.line.hidden = YES;
     }else{
@@ -89,6 +91,7 @@ const NSUInteger defaultTextSize = 13;
     cell.segmentBtn.hidden = !cell.selected;
     [cell.titleImage setTitleColor:self.selectedTitleTextColor == nil?[UIColor redColor]:self.selectedTitleTextColor forState:UIControlStateNormal];
     cell.backgroundColor = self.selectSegmentbackColor == nil?[UIColor whiteColor]:self.selectSegmentbackColor;
+    
     if ([_delegate respondsToSelector:@selector(topBarSegmentWithBlock:indexPath:)]) {
         [_delegate topBarSegmentWithBlock:self indexPath:indexPath];
     }
@@ -117,5 +120,5 @@ const NSUInteger defaultTextSize = 13;
     [cell.titleImage setTitleColor:self.titleTextColor==nil?[UIColor blackColor]:self.titleTextColor forState:UIControlStateNormal];
     cell.backgroundColor = self.segmentbackColor == nil?[UIColor whiteColor]:self.segmentbackColor;
 }
-
+//cell.titleImage.frame = CGRectMake(10, 5, CGRectGetWidth(cell.bounds)-20, CGRectGetHeight(cell.bounds)-10);
 @end

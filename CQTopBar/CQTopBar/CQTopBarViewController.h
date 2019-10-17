@@ -45,41 +45,51 @@
 /**
  不选中时文本的颜色
  */
-@property (nonatomic, strong) UIColor * _Nullable titleTextColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, weak) UIColor * _Nullable titleTextColor UI_APPEARANCE_SELECTOR;
 
 /**
  选中文本的颜色
  */
-@property (nonatomic, strong) UIColor * _Nullable selectedTitleTextColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, weak) UIColor * _Nullable selectedTitleTextColor UI_APPEARANCE_SELECTOR;
 
 /**
  需要显示的文本字体
  */
-@property (nonatomic, strong) UIFont * _Nullable titleTextFont;
+@property (nonatomic, weak) UIFont * _Nullable titleTextFont;
 
 /**
  未选中后的图标
  */
-@property (nonatomic, strong) NSString * _Nullable segmentImage;
+@property (nonatomic, copy) NSString * _Nullable segmentImage;
 
 /**
  选中后的图标
  */
-@property (nonatomic, strong) NSString * _Nullable selectSegmentImage;
+@property (nonatomic, copy) NSString * _Nullable selectSegmentImage;
 
 /**
  线条的颜色
  */
-@property (nonatomic, strong) UIColor * _Nullable segmentlineColor;
+@property (nonatomic, weak) UIColor * _Nullable segmentlineColor;
 
 /**
  未选中的背景色
  */
-@property (nonatomic, strong) UIColor * _Nullable segmentbackColor;
+@property (nonatomic, weak) UIColor * _Nullable segmentbackColor;
+
 /**
  选中的背景色
  */
-@property (nonatomic, strong) UIColor * _Nullable selectSegmentbackColor;
+@property (nonatomic, weak) UIColor * _Nullable selectSegmentbackColor;
 
+/**
+ 未选中的背景图
+ */
+@property (nonatomic, weak) UIImage * _Nullable segmentbackImage;
+
+/**
+ 选中的背景图
+ */
+@property (nonatomic, weak) UIImage * _Nullable selectSegmentbackImage;
 
 @end

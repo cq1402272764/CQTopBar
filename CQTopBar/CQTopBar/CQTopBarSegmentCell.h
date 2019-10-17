@@ -20,4 +20,5 @@
 @property(nonatomic,strong) CQSegmentTitleImage *titleImage;
 @property(nonatomic,strong) UIView *line;
 @property(nonatomic,strong) UIView *crossLine;
+@property(nonatomic,strong) UIImageView *backImageView;
 @end
