@@ -64,6 +64,8 @@ const NSUInteger defaultTextSize = 13;
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     CQTopBarSegmentCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+    cell.index = indexPath.row;
+    cell.count = self.sectionTitles.count;
     cell.titleImage.titleLabel.font = self.titleTextFont==nil?[UIFont systemFontOfSize:defaultTextSize]:self.titleTextFont;
     cell.titleImage.segmentTitleFont = cell.titleImage.titleLabel.font;
     [cell.titleImage setTitleColor:self.titleTextColor==nil?[UIColor blackColor]:self.titleTextColor forState:UIControlStateNormal];

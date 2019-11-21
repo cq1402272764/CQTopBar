@@ -41,11 +41,20 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     CGFloat lineW = 0.5;
-    self.backImageView.frame = CGRectMake(10, 5, CGRectGetWidth(self.bounds)-20, CGRectGetHeight(self.bounds)-10);
+    CGFloat backImageViewY = self.index==0?10:5;
+    CGFloat spacing;
+        if (self.index==0) {
+            spacing = 15;
+        }else if (self.index+1 == self.count){
+            spacing = 15;
+        }else{
+            spacing = 10;
+        }
+    self.backImageView.frame = CGRectMake(backImageViewY, 5, CGRectGetWidth(self.bounds)-spacing, CGRectGetHeight(self.bounds)-10);
     self.line.frame = CGRectMake(CGRectGetWidth(self.bounds)-lineW, CGRectGetHeight(self.bounds)/4, lineW, CGRectGetHeight(self.bounds)/2);
     self.crossLine.frame = CGRectMake(0, CGRectGetHeight(self.bounds)-lineW, CGRectGetWidth(self.bounds), lineW);
     self.titleImage.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds)-lineW, CGRectGetHeight(self.bounds));
-    self.segmentBtn.frame = CGRectMake(10, 5, CGRectGetWidth(self.bounds)-20, CGRectGetHeight(self.bounds)-10);
+    self.segmentBtn.frame = CGRectMake(backImageViewY, 5, CGRectGetWidth(self.bounds)-spacing, CGRectGetHeight(self.bounds)-10);
 }
 
 - (void)segmentViewBtn{

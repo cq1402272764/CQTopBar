@@ -21,4 +21,7 @@
 @property(nonatomic,strong) UIView *line;
 @property(nonatomic,strong) UIView *crossLine;
 @property(nonatomic,strong) UIImageView *backImageView;
+@property(nonatomic,assign) NSInteger index;
+@property(nonatomic,assign) NSInteger count;
+
 @end

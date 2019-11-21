@@ -31,6 +31,7 @@
     self.topBar.segmentbackImage = [UIImage imageNamed:@"userorder_cancelbtn_highlight"];
     self.topBar.selectSegmentbackImage = [UIImage imageNamed:@"main_searchbutton_normal"];
     self.topBar.segmentlineColor = [UIColor whiteColor];
+    self.topBar.segmentFrame = CGRectMake(0, 0, self.view.bounds.size.width, 40);
     [self addChildViewController:self.topBar];
     [self.view addSubview:self.topBar.view];
     

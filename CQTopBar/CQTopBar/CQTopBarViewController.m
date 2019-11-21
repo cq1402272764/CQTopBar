@@ -11,15 +11,19 @@
 #import "CQTopBarView.h"
 #import "CQTopBarSegmentCell.h"
 
+#define IPHONE_X \
+({BOOL isPhoneX = NO;\
+if (@available(iOS 11.0, *)) {\
+isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
+}\
+(isPhoneX);})\
+
 @interface CQTopBarViewController ()<CQTopBarSegmentDelegate,CQTopBarViewDelegate>
 @property (nonatomic,strong) CQTopBarSegment * segment;
 @property (nonatomic,strong) CQTopBarView * barView;
 @end
 
 @implementation CQTopBarViewController
-
-const NSUInteger segmentY = 64;
-const NSUInteger segmentH = 40;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,6 +34,8 @@ const NSUInteger segmentH = 40;
 }
 
 - (void)initUI{
+    NSUInteger segmentY = IPHONE_X ? 88 : 64;
+    NSUInteger segmentH = 40;
     CGFloat segmentFrameX = self.segmentFrame.origin.x == 0?0:self.segmentFrame.origin.x;
     CGFloat segmentFrameY = self.segmentFrame.origin.y == 0?segmentY:self.segmentFrame.origin.y;
     CGFloat segmentFrameW = self.segmentFrame.size.width == 0?CGRectGetWidth(self.view.bounds):self.segmentFrame.size.width;
