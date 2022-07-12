@@ -34,7 +34,8 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 }
 
 - (void)initUI{
-    NSUInteger segmentY = IPHONE_X ? 88 : 64;
+//    NSUInteger segmentY = IPHONE_X ? 88 : 64;
+    NSUInteger segmentY = 8;
     NSUInteger segmentH = 40;
     CGFloat segmentFrameX = self.segmentFrame.origin.x == 0?0:self.segmentFrame.origin.x;
     CGFloat segmentFrameY = self.segmentFrame.origin.y == 0?segmentY:self.segmentFrame.origin.y;
@@ -97,6 +98,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 
 - (void)topBarSegmentWithSegmentView:(CQTopBarSegment *)segmentView{
     [self setViewAnimaWithHeight:0];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"shouqiquanbushuaixuanyemian" object:nil];
 }
 
 - (void)topBarWithBarView:(CQTopBarView *)segment indexPath:(NSIndexPath *)indexPath{
