@@ -8,7 +8,7 @@
 
 #import "CQTopBarSegment.h"
 #import "CQTopBarSegmentCell.h"
-#import "CQTopBarView.h"
+#import "CQTopBarFiltrateView.h"
 
 @interface CQTopBarSegment ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,CQTopBarSegmentCellDelegate>
 @end
@@ -48,7 +48,7 @@ const NSUInteger defaultTextSize = 13;
     [self.collectionView registerClass:[CQTopBarSegmentCell class] forCellWithReuseIdentifier:ID];
 }
 
-- (void)topBarReplaceObjectsAtIndexes:(NSUInteger)indexes withObjects:(id)objects BarView:(CQTopBarView *)barView{
+- (void)topBarReplaceObjectsAtIndexes:(NSUInteger)indexes withObjects:(id)objects BarView:(CQTopBarFiltrateView *)barView{
     [self.sectionTitles replaceObjectAtIndex:indexes withObject:objects];
     [UIView animateKeyframesWithDuration:0.3 delay:0 options:UIViewKeyframeAnimationOptionCalculationModePaced animations:^{
         CGRect rect = barView.frame;
@@ -66,14 +66,14 @@ const NSUInteger defaultTextSize = 13;
     CQTopBarSegmentCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
     cell.index = indexPath.row;
     cell.count = self.sectionTitles.count;
+    NSString *title = self.sectionTitles[indexPath.row];
+    [cell.titleImage setTitle:title forState:UIControlStateNormal];
     cell.titleImage.titleLabel.font = self.titleTextFont==nil?[UIFont systemFontOfSize:defaultTextSize]:self.titleTextFont;
     cell.titleImage.segmentTitleFont = cell.titleImage.titleLabel.font;
     [cell.titleImage setTitleColor:self.titleTextColor==nil?[UIColor blackColor]:self.titleTextColor forState:UIControlStateNormal];
-    [cell.titleImage setTitle:self.sectionTitles[indexPath.row] forState:UIControlStateNormal];
     cell.segmentBtn.hidden = YES;
     cell.crossLine.backgroundColor = self.segmentlineColor == nil ? [UIColor grayColor] : self.segmentlineColor;
     cell.line.backgroundColor = self.segmentlineColor == nil ? [UIColor grayColor] : self.segmentlineColor;
-    // question_query_arrow_down_default
     [cell.titleImage setImage:[UIImage imageNamed:self.segmentImage==nil?@"":self.segmentImage] forState:UIControlStateNormal];
     cell.backgroundColor = self.segmentbackColor == nil?[UIColor whiteColor]:self.segmentbackColor;
     cell.backImageView.image = self.segmentbackImage;
@@ -97,7 +97,6 @@ const NSUInteger defaultTextSize = 13;
     if ([_delegate respondsToSelector:@selector(topBarSegmentWithBlock:indexPath:)]) {
         [_delegate topBarSegmentWithBlock:self indexPath:indexPath];
     }
-    // question_query_arrow_down_selected
     [cell.titleImage setImage:[UIImage imageNamed:self.selectSegmentImage==nil?@"":self.selectSegmentImage] forState:UIControlStateNormal];
 }
 
@@ -117,10 +116,9 @@ const NSUInteger defaultTextSize = 13;
 }
 
 - (void)setupCellAttribute:(CQTopBarSegmentCell *)cell{
-    // question_query_arrow_down_default
     [cell.titleImage setImage:[UIImage imageNamed:self.segmentImage==nil?@"":self.segmentImage] forState:UIControlStateNormal];
     [cell.titleImage setTitleColor:self.titleTextColor==nil?[UIColor blackColor]:self.titleTextColor forState:UIControlStateNormal];
     cell.backgroundColor = self.segmentbackColor == nil?[UIColor whiteColor]:self.segmentbackColor;
 }
-//cell.titleImage.frame = CGRectMake(10, 5, CGRectGetWidth(cell.bounds)-20, CGRectGetHeight(cell.bounds)-10);
+
 @end

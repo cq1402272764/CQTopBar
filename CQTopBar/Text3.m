@@ -2,7 +2,7 @@
 //  Text3.m
 //  CQTopBar
 //
-//  Created by yto on 2018/1/22.
+//  Created by CQ on 2018/1/22.
 //  Copyright © 2018年 CQ. All rights reserved.
 //
 
@@ -39,8 +39,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *str = [NSString stringWithFormat:@"text%zd",indexPath.row];
-    NSNotification *notification =[NSNotification notificationWithName:NSStringFromClass([Text3 class]) object:str];
-    [[NSNotificationCenter defaultCenter] postNotification:notification];
+    if (self.titleLabel) self.titleLabel(str);
 }
 
 @end

@@ -2,18 +2,18 @@
 //  ViewController.m
 //  CQTopBar
 //
-//  Created by yto on 2018/1/9.
+//  Created by CQ on 2018/1/9.
 //  Copyright © 2018年 CQ. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "CQTopBarViewController.h"
-#import "Text1.h"
-#import "Text2.h"
-#import "Text3.h"
+#import "CQTopBarView.h"
+#import "testView1.h"
+#import "testView2.h"
+#import "testView3.h"
 
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic, strong) CQTopBarViewController *topBar;
+@interface ViewController () <UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, strong) CQTopBarView *topBar;
 @end
 
 @implementation ViewController
@@ -22,31 +22,31 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(InfoNotificationAction2:) name:NSStringFromClass([Text2 class]) object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(InfoNotificationAction3:) name:NSStringFromClass([Text3 class]) object:nil];
+    testView1 *test1 = [[testView1 alloc] init];
     
-    self.topBar = [[CQTopBarViewController alloc] init];
-    self.topBar.sectionTitles = @[@"Text1",@"Text2Text2",@"Text3"];
-    self.topBar.pageViewClasses = @[[Text1 class],[Text2 class],[Text3 class]];
-    self.topBar.segmentbackImage = [UIImage imageNamed:@"userorder_cancelbtn_highlight"];
-    self.topBar.selectSegmentbackImage = [UIImage imageNamed:@"main_searchbutton_normal"];
-    self.topBar.segmentlineColor = [UIColor whiteColor];
-    self.topBar.segmentFrame = CGRectMake(0, 0, self.view.bounds.size.width, 40);
-    [self addChildViewController:self.topBar];
-    [self.view addSubview:self.topBar.view];
+    testView2 *test2 = [[testView2 alloc] init];
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.topBar.footerView.bounds.size.height)];
+    testView3 *test3 = [[testView3 alloc] init];
+    
+    UITableView *tableView = [[UITableView alloc] init];
     tableView.delegate = self;
     tableView.dataSource = self;
-    [self.topBar.footerView addSubview:tableView];
-}
-
-- (void)InfoNotificationAction2:(NSNotification *)notification{
-    [self.topBar topBarReplaceObjectsAtIndexes:1 withObjects:notification.userInfo[@"text"]];
-}
-
-- (void)InfoNotificationAction3:(NSNotification *)notification{
-    self.topBar.hiddenView = YES;
+    
+    CGRect topBarFrame = CGRectMake(0, 64, [[UIScreen mainScreen] bounds].size.width, 40);
+    CQTopBarView *topBar = [[CQTopBarView alloc] initWithFrame:topBarFrame
+                                                   ContentView:tableView
+                                                 SectionTitles:@[@"test1",@"test2",@"test3"]
+                                                     PageViews:@[test1,test2,test3]];
+    
+    topBar.segmentbackImage = [UIImage imageNamed:@"userorder_cancelbtn_highlight"];
+    topBar.selectSegmentbackImage = [UIImage imageNamed:@"main_searchbutton_normal"];
+    topBar.segmentlineColor = [UIColor whiteColor];
+    [self.view addSubview:topBar];
+    
+    [test1 setTitleLabel:^(NSString * _Nonnull str) {
+        NSLog(@"test1=====%@",str);
+    }];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

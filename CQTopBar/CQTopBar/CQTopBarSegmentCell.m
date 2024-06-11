@@ -14,7 +14,6 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        
         self.backImageView = [[UIImageView alloc] init];
         [self.contentView addSubview:self.backImageView];
         
@@ -32,7 +31,6 @@
         [self.contentView addSubview:self.line];
         self.crossLine = [[UIView alloc] init];
         [self.contentView addSubview:self.crossLine];
-        
     }
     return self;
 }
