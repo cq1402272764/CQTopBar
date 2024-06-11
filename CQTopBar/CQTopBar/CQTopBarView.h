@@ -51,12 +51,12 @@
 /**
  未选中Segment后的图标
  */
-@property (nonatomic, strong) NSString * _Nullable segmentImage;
+@property (nonatomic, copy) NSString * _Nullable segmentImage;
 
 /**
  选中Segment后的图标
  */
-@property (nonatomic, strong) NSString * _Nullable selectSegmentImage;
+@property (nonatomic, copy) NSString * _Nullable selectSegmentImage;
 
 /**
  线条Segment的颜色
