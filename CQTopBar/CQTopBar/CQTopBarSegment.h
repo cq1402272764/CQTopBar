@@ -17,13 +17,13 @@
 
 @interface CQTopBarSegment : UIView
 @property (nonatomic, weak) id<CQTopBarSegmentDelegate> _Nullable delegate;
-@property(nonatomic,strong) UICollectionView * _Nonnull collectionView;
+@property (nonatomic, strong) UICollectionView * _Nonnull collectionView;
 @property (nonatomic, strong) NSMutableArray * _Nonnull sectionTitles;
 @property (nonatomic, strong) UIColor * _Nonnull titleTextColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic, strong) UIColor * _Nonnull selectedTitleTextColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic, strong) UIFont * _Nonnull titleTextFont;
-@property (nonatomic, strong) NSString * _Nullable segmentImage;
-@property (nonatomic, strong) NSString * _Nonnull selectSegmentImage;
+@property (nonatomic, copy) NSString * _Nullable segmentImage;
+@property (nonatomic, copy) NSString * _Nonnull selectSegmentImage;
 @property (nonatomic, strong) UIColor * _Nonnull segmentlineColor;
 @property (nonatomic, strong) UIColor * _Nonnull segmentbackColor;
 @property (nonatomic, strong) UIColor * _Nonnull selectSegmentbackColor;

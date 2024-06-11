@@ -16,12 +16,12 @@
 @end
 @interface CQTopBarSegmentCell : UICollectionViewCell
 @property (nonatomic, weak) id<CQTopBarSegmentCellDelegate>delegate;
-@property(nonatomic,strong) UIButton * segmentBtn;
-@property(nonatomic,strong) CQSegmentTitleImage *titleImage;
-@property(nonatomic,strong) UIView *line;
-@property(nonatomic,strong) UIView *crossLine;
-@property(nonatomic,strong) UIImageView *backImageView;
-@property(nonatomic,assign) NSInteger index;
-@property(nonatomic,assign) NSInteger count;
+@property (nonatomic, strong) UIButton * segmentBtn;
+@property (nonatomic, strong) CQSegmentTitleImage *titleImage;
+@property (nonatomic, strong) UIView *line;
+@property (nonatomic, strong) UIView *crossLine;
+@property (nonatomic, strong) UIImageView *backImageView;
+@property (nonatomic, assign) NSInteger index;
+@property (nonatomic, assign) NSInteger count;
 
 @end
